@@ -6,9 +6,9 @@ import 'package:flat_chat/screens/registration_screen.dart';
 import 'package:flat_chat/screens/chat_screen.dart';
 
 void main() async  {
-WidgetsFlutterBinding.ensureInitialized();
+ //WidgetsFlutterBinding.ensureInitialized();
 
-await Firebase.initializeApp();
+// await Firebase.initializeApp();
 runApp(FlashChat());
 }
 
