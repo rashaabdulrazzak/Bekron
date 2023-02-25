@@ -1,8 +1,11 @@
-import 'package:flat_chat/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flat_chat/constants.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
+import 'package:flat_chat/components/rounded_button.dart';
+import 'package:flat_chat/components/hero_logo.dart';
+import 'package:flat_chat/components/start_pages_header.dart';
+//import 'package:email_validator/email_validator.dart';
+import 'package:flat_chat/screens/login_screen.dart';
+import 'package:flat_chat/screens/agreement.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static String id = 'register_screen';
@@ -11,95 +14,60 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-  final _auth = FirebaseAuth.instance ;
   late String email;
+  late String phone;
   late String password;
-  bool showSpinner = false;
+  late String confirmPassword;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      body: ModalProgressHUD(
-        inAsyncCall:showSpinner,
+      body: Container(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Expanded(
-                child: Hero(
-                  tag: 'logo',
-                  child: Container(
-                    height: 200.0,
-                    child: Image.asset('images/logo.png'),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 48.0,
-              ),
-              TextField(
-                onChanged: (value) {
-                  //Do something with the user input.
-                  email = value;
-                },
+              Flexible(child: HeroLogo(imgHeight:100.0),),
+              StartPagesHeader(mainText:'CREATE YOUR ACCOUNT'),
+              TextFormField(
+                onChanged: (value) {email=value;},
+                decoration:  kTextFieldDecoration.copyWith(hintText: 'Email'),
                 keyboardType: TextInputType.emailAddress,
-                textAlign: TextAlign.center,
-                decoration: kTextFieldDecoration.copyWith(hintText: 'Enter Your Email'),
               ),
-
-              const SizedBox(
-                height: 8.0,
+              const SizedBox(height: 10.0,),
+              TextFormField(
+                onChanged: (value) {phone=value;},
+                decoration:  kTextFieldDecoration.copyWith(hintText: 'Phone Number'),
+                keyboardType: TextInputType.phone,
               ),
-              TextField(
-                onChanged: (value) {
-                  //Do something with the user input.'
-                  password = value;
-                },
+              const SizedBox(height: 10.0,),
+              TextFormField(
+                onChanged: (value) {password = value;},
                 obscureText: true,
-                textAlign: TextAlign.center,
-                decoration: kTextFieldDecoration.copyWith(hintText: 'Enter your password'),
-
+                decoration:  kTextFieldDecoration.copyWith(hintText: 'Password'),
               ),
-              const SizedBox(
-                height: 24.0,
+              SizedBox(height: 10.0),
+              TextFormField(
+                onChanged: (value) {confirmPassword = value;},
+                obscureText: true,
+                decoration:  kTextFieldDecoration.copyWith(hintText: 'Password Confirm'),
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
-                child: Material(
-                  color: Colors.blueAccent,
-                  borderRadius:  BorderRadius.all(Radius.circular(30.0)),
-                  elevation: 5.0,
-                  child: MaterialButton(
-                    onPressed: () async {
-                      //Implement registration functionality.
-                      setState(() {
-                        showSpinner = true;
-                      });
-                      try {
-                        print(email);
-                        print(password);
-                        final newUser = await _auth
-                            .createUserWithEmailAndPassword(
-                            email: email, password: password);
-                        if(newUser != null){
-                          Navigator.pushNamed(context, ChatScreen.id);
-                        }
-                        setState(() {
-                          showSpinner = false;
-                        });
-                      } catch(e){
-                        print(e);
-                      }
-                    },
-                    minWidth: 200.0,
-                    height: 42.0,
-                    child: const Text(
-                      'Register',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                  ),
+              SizedBox(height: 10.0),
+              RoundedButton(borderRadius: 15.0,textBtn: 'SIGN UP',onPress: () async {
+                if(email!=null&&phone!=null&&password!=null){
+                  Navigator.push(context,MaterialPageRoute(builder: (context){
+                    return AgreementScreen(email:email,phone: phone, password: password,);
+                  }));
+                }
+              },),
+              SizedBox(height: 10.0),
+              GestureDetector(
+                onTap: (){Navigator.pushNamed(context, LoginScreen.id);},
+                child: Text(
+                  'You have an account?',
+                  style:TextStyle(fontWeight: FontWeight.bold, fontSize: 13.0),
                 ),
               ),
             ],
