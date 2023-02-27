@@ -71,10 +71,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             SizedBox(
               height: 48.0,
             ),
-            RoundedButton(colorBtn: Colors.lightBlueAccent,textBtn: 'Log In',onPress: (){
+            RoundedButton(borderRadius: 35.0,textBtn: 'Log In',onPress: (){
               Navigator.pushNamed(context, LoginScreen.id);
             },),
-            RoundedButton(colorBtn: Colors.blueAccent,textBtn: 'Register',onPress: (){
+            RoundedButton(borderRadius: 35.0,textBtn: 'Register',onPress: (){
               // first sol
               //  Navigator.push(context, MaterialPageRoute(builder: (context)=>  RegistrationScreen()));
               Navigator.pushNamed(context, RegistrationScreen.id);
