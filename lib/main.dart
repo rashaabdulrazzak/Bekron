@@ -7,7 +7,7 @@ import 'package:flat_chat/screens/chat_screen.dart';
 import 'package:flat_chat/screens/main_screen.dart';
 import 'package:flat_chat/screens/forget_screen.dart';
 import 'package:flat_chat/constants.dart';
-
+import 'package:flat_chat/screens/talk_to_us.dart';
 void main() async  {
  //WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,7 +19,9 @@ class FlashChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: MainScreen.id ,
+
+      home:TalkToUs(),
+      //initialRoute: MainScreen.id ,
       theme: ThemeData(
         textSelectionTheme: TextSelectionThemeData(
             cursorColor: mainAppColor
