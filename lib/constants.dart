@@ -41,4 +41,10 @@ const kTextFieldDecoration = InputDecoration(
   ),
 );
 
+const kUserProfileText = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 16.0,
+  color:mainAppColor ,
+  decoration: TextDecoration.none,
+);
 
