@@ -18,8 +18,9 @@ class map extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: 135,
       width: 150,
+      margin: EdgeInsets.only(top: 20.0),
       child: FlutterMap(
         mapController: mapController,
         options: MapOptions(

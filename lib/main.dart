@@ -20,8 +20,8 @@ class FlashChat extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      home:TalkToUs(),
-      //initialRoute: MainScreen.id ,
+      //home:TalkToUs(),
+      initialRoute: MainScreen.id ,
       theme: ThemeData(
         textSelectionTheme: TextSelectionThemeData(
             cursorColor: mainAppColor
