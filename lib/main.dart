@@ -8,6 +8,7 @@ import 'package:flat_chat/screens/main_screen.dart';
 import 'package:flat_chat/screens/forget_screen.dart';
 import 'package:flat_chat/screens/launch_screen.dart';
 import 'package:flat_chat/constants.dart';
+import 'package:flat_chat/screens/talk_to_us.dart';
 
 void main() async {
   //WidgetsFlutterBinding.ensureInitialized();
@@ -32,6 +33,7 @@ class FlashChat extends StatelessWidget {
         ForgotPassword.id: (context) => ForgotPassword(),
         ChatScreen.id: (context) => ChatScreen(),
         LaunchScreen.id: (context) => LaunchScreen(),
+        TalkToUs.id: (context) => TalkToUs(),
       },
     );
   }
