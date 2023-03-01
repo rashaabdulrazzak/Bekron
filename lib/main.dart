@@ -1,5 +1,6 @@
 //import 'package:firebase_core/firebase_core.dart';
 import 'package:flat_chat/screens/user_profile.dart';
+import 'package:flat_chat/screens/user_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flat_chat/screens/welcome_screen.dart';
 import 'package:flat_chat/screens/login_screen.dart';
@@ -8,6 +9,8 @@ import 'package:flat_chat/screens/chat_screen.dart';
 import 'package:flat_chat/screens/main_screen.dart';
 import 'package:flat_chat/screens/forget_screen.dart';
 import 'package:flat_chat/constants.dart';
+
+import 'components/whirl_count.dart';
 
 void main() async  {
  //WidgetsFlutterBinding.ensureInitialized();
@@ -34,6 +37,8 @@ class FlashChat extends StatelessWidget {
         ForgotPassword.id: (context) =>  ForgotPassword(),
         ChatScreen.id: (context) =>  ChatScreen(),
         UserProfile.id:(context)=> const UserProfile(),
+        UserScan.id : (context)=>  UserScan(),
+        WhirlCount.id: (context)=> WhirlCount()
       },
     );
   }
