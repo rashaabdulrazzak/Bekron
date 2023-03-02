@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flat_chat/constants.dart';
+import 'package:flat_chat/screens/main_screen.dart';
 import 'dart:math';
 
 class LaunchScreen extends StatefulWidget {
@@ -13,11 +13,17 @@ class LaunchScreen extends StatefulWidget {
 
 class _LaunchScreenState extends State<LaunchScreen> {
   @override
-  // void initState() {
-  //   super.initState();
-  //   Timer(Duration(seconds: 3),
-  //         ()=>Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => HomeScreen()));
-  // }
+  void initState() {
+    super.initState();
+    _navigateToLogin();
+  }
+
+  _navigateToLogin() async {
+    await Future.delayed(const Duration(milliseconds: 5000), () {});
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => MainScreen()));
+  }
+
   Widget build(BuildContext context) {
     Random random = Random();
     int launchImageIndex = random.nextInt(3);
