@@ -13,6 +13,11 @@ class LaunchScreen extends StatefulWidget {
 
 class _LaunchScreenState extends State<LaunchScreen> {
   @override
+  // void initState() {
+  //   super.initState();
+  //   Timer(Duration(seconds: 3),
+  //         ()=>Navigator.pushReplacement(context,MaterialPageRoute(builder:(context) => HomeScreen()));
+  // }
   Widget build(BuildContext context) {
     Random random = Random();
     int launchImageIndex = random.nextInt(3);
