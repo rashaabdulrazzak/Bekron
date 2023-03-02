@@ -11,9 +11,6 @@ import 'package:flat_chat/constants.dart';
 import 'package:flat_chat/screens/talk_to_us.dart';
 
 void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
-
-// await Firebase.initializeApp();
   runApp(FlashChat());
 }
 
@@ -21,9 +18,12 @@ class FlashChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: MainScreen.id,
+      debugShowCheckedModeBanner: false,
+      title: 'Bekron App',
+      home: const LaunchScreen(),
       theme: ThemeData(
-        textSelectionTheme: TextSelectionThemeData(cursorColor: mainAppColor),
+        textSelectionTheme:
+            const TextSelectionThemeData(cursorColor: mainAppColor),
       ),
       routes: {
         MainScreen.id: (context) => MainScreen(),
@@ -32,7 +32,7 @@ class FlashChat extends StatelessWidget {
         RegistrationScreen.id: (context) => RegistrationScreen(),
         ForgotPassword.id: (context) => ForgotPassword(),
         ChatScreen.id: (context) => ChatScreen(),
-        LaunchScreen.id: (context) => LaunchScreen(),
+        LaunchScreen.id: (context) => const LaunchScreen(),
         TalkToUs.id: (context) => TalkToUs(),
       },
     );
