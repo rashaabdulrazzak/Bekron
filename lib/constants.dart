@@ -43,3 +43,27 @@ const kTextFieldDecoration = InputDecoration(
   ),
 );
 
+const kUserProfileText = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 16.0,
+  color:mainAppColor ,
+  decoration: TextDecoration.none,
+);
+const kUserScanText = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 32.0,
+  color:mainAppColor ,
+  decoration: TextDecoration.none,
+);
+const kUserAdminText = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 24.0,
+  color:Colors.black87 ,
+  decoration: TextDecoration.none,
+);
+const kUserAdminEmailText = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 16.0,
+  color:Colors.black87 ,
+  decoration: TextDecoration.none,
+);
