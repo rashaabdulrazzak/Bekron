@@ -15,27 +15,37 @@ class _MainScreenState extends State<MainScreen>{
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: <Widget>[
-            Row(
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Container(
+            height: 300.0,
+            alignment: Alignment.center,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Expanded(
-                  child: HeroLogo(imgHeight:160.0),
+                Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: HeroLogo(imgHeight:160.0),
+                    ),
+                  ],
                 ),
+                SizedBox(height: 30.0),
+                RoundedButton(borderRadius: 8.0,textBtn: 'LOGIN',onPress: (){
+                  Navigator.pushNamed(context, LoginScreen.id);
+                },),
+                RoundedButton(borderRadius: 8.0,textBtn: 'SIGN-UP',onPress: (){
+                  Navigator.pushNamed(context, RegistrationScreen.id);
+                },),
               ],
             ),
-            SizedBox(height: 30.0),
-            RoundedButton(borderRadius: 8.0,textBtn: 'LOGIN',onPress: (){
-              Navigator.pushNamed(context, LoginScreen.id);
-            },),
-            RoundedButton(borderRadius: 8.0,textBtn: 'SIGN-UP',onPress: (){
-              Navigator.pushNamed(context, RegistrationScreen.id);
-            },),
-          ],
+          ),
         ),
       ),
     );
