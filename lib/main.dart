@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flat_chat/screens/welcome_screen.dart';
 import 'package:flat_chat/screens/login_screen.dart';
 import 'package:flat_chat/screens/registration_screen.dart';
-import 'package:flat_chat/screens/chat_screen.dart';
 import 'package:flat_chat/screens/main_screen.dart';
 import 'package:flat_chat/screens/forget_screen.dart';
 import 'package:flat_chat/screens/launch_screen.dart';
