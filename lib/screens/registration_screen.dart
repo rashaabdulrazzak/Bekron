@@ -5,6 +5,7 @@ import 'package:flat_chat/components/hero_logo.dart';
 import 'package:flat_chat/components/start_pages_header.dart';
 import 'package:flat_chat/screens/login_screen.dart';
 import 'package:flat_chat/screens/agreement.dart';
+import 'package:flat_chat/components/form_input.dart';
 import 'package:regexed_validator/regexed_validator.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -23,7 +24,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   late String confirmPassword;
 
   final _formKey = GlobalKey<FormState>();
-
   String? validateInputs(String? value, String inputType) {
     if(value==null||value.isEmpty ) {return "* Required";}
     else if(inputType=='email' && !validator.email(value) ){
@@ -42,64 +42,57 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        alignment: Alignment.center,
+        padding: EdgeInsets.symmetric(horizontal: 24.0, vertical: 10.0),
         child: Form(
           key: _formKey,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 24.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Flexible(child: HeroLogo(imgHeight:100.0),),
-                StartPagesHeader(mainText:'CREATE YOUR ACCOUNT'),
-                TextFormField(
-                  onChanged: (value) {name=value;},
-                  decoration:  kTextFieldDecoration.copyWith(hintText: 'Name'),
-                  validator: (value) =>validateInputs(value, 'name'),
-                ),
-                const SizedBox(height: 10.0,),
-                TextFormField(
-                  onChanged: (value) {email=value;},
-                  decoration:  kTextFieldDecoration.copyWith(hintText: 'Email'),
-                  validator: (value) =>validateInputs(value, 'email'),
-                ),
-                const SizedBox(height: 10.0,),
-                TextFormField(
-                  onChanged: (value) {phone=value;},
-                  decoration:  kTextFieldDecoration.copyWith(hintText: 'Phone Number'),
-                  validator: (value) =>validateInputs(value, 'phone'),
-                ),
-                const SizedBox(height: 10.0,),
-                TextFormField(
-                  onChanged: (value) {password = value;},
-                  obscureText: true,
-                  decoration:  kTextFieldDecoration.copyWith(hintText: 'Password'),
-                  validator: (value) =>validateInputs(value, 'password'),
-                ),
-                SizedBox(height: 10.0),
-                TextFormField(
-                  onChanged: (value) {confirmPassword = value;},
-                  obscureText: true,
-                  decoration:  kTextFieldDecoration.copyWith(hintText: 'Password Confirm'),
-                  validator: (value) =>validateInputs(value, 'confirmPassword'),
-                ),
-                SizedBox(height: 10.0),
-                RoundedButton(borderRadius: 15.0,textBtn: 'SIGN UP',onPress: () async {
-                  if(_formKey.currentState!.validate()){
-                    Navigator.push(context,MaterialPageRoute(builder: (context){
-                      return AgreementScreen(name:name,email:email,phone: phone, password: password,);
-                    }));
-                  }
-                },),
-                SizedBox(height: 10.0),
-                GestureDetector(
-                  onTap: (){Navigator.pushNamed(context, LoginScreen.id);},
-                  child: Text(
-                    'You have an account?',
-                    style:TextStyle(fontWeight: FontWeight.bold, fontSize: 13.0),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Container(
+              height: 550.0,
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Flexible(child: HeroLogo(imgHeight:100.0),),
+                  StartPagesHeader(mainText:'CREATE YOUR ACCOUNT'),
+                  FormInput(hintText:'Name',
+                    validatorFunction:(value) =>validateInputs(value, 'name')
+                    ,onChangedFunction:(value) {name=value;},),
+                  FormInput(hintText:'Email',validatorFunction:(value) =>validateInputs(value, 'email'),
+                    onChangedFunction:(value) {email=value;},),
+                  FormInput(hintText:'Phone Number',
+                    validatorFunction:(value) =>validateInputs(value, 'phone'),
+                    onChangedFunction:(value) {phone=value;},),
+                  FormInput(hintText:'Password',
+                    validatorFunction:(value) =>validateInputs(value, 'password'),
+                    obsecure: true,
+                    onChangedFunction:(value) {password=value;},),
+                  FormInput(hintText:'Password Confirm',
+                    validatorFunction:(value) =>validateInputs(value, 'confirmPassword'),
+                    obsecure: true,
+                    onChangedFunction:(value) {confirmPassword=value;},),
+                  SizedBox(height: 3.0),
+                  RoundedButton(borderRadius: 15.0,textBtn: 'SIGN UP',onPress: () async {
+                    if(_formKey.currentState!.validate()){
+                      Navigator.push(context,MaterialPageRoute(builder: (context){
+                        return AgreementScreen(name:name,email:email,phone: phone, password: password,);
+                      }));
+                    }
+                  },),
+                  SizedBox(height: 10.0),
+                  GestureDetector(
+                    onTap: (){Navigator.pushNamed(context, LoginScreen.id);},
+                    child: const Text(
+                      'You have an account?',
+                      style:TextStyle(fontWeight: FontWeight.bold, fontSize: 13.0),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
