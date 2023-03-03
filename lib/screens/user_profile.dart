@@ -28,13 +28,20 @@ class _UserProfileState extends State<UserProfile> {
             const SizedBox(
               height: 25,
             ),
-            const Text('Hi,Ahmad',
-                style: TextStyle(
-                  color: Colors.black,
-                  decoration: TextDecoration.none,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16.0,
-                )),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text('Hi,Ahmad',
+                    style: TextStyle(
+                      color: Colors.black,
+                      decoration: TextDecoration.none,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    )),
+                RoundedButton(borderRadius: 10, textBtn: 'logout', onPress: (){}),
+              ],
+            ),
              const Expanded(
                child: Center(
                  child: Text('Cup Component',
