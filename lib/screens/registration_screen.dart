@@ -51,7 +51,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Container(
-              height: 550.0,
+              height: 600.0,
               alignment: Alignment.center,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

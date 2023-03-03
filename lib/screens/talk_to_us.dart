@@ -1,3 +1,5 @@
+import 'package:flat_chat/components/bottom_nav_call.dart';
+import 'package:flat_chat/components/contact_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flat_chat/components/hero_logo.dart';
 import 'package:flat_chat/constants.dart';
@@ -87,6 +89,7 @@ class _TalkToUsState extends State<TalkToUs> {
                                   child: const Text('Google maps'),
                                 ),
                               ),
+                              SizedBox(height: 20,),
                               ElevatedButton(
                                 onPressed: () async {
                                   Uri phoneno = Uri.parse('https://yandex.com.tr/harita/106124/kadikoy/house/caddebostan_plajyolu_sok_8b/ZkAYdgFjQUcEQFpqfXV3eX5nZA==/?ll=29.063823%2C40.968240&z=16.47');
@@ -109,115 +112,11 @@ class _TalkToUsState extends State<TalkToUs> {
                         ],
                       ),
                       //  const SizedBox(height: 30),
-                      const Align(
-                        alignment: Alignment.topLeft,
-                        child: Padding(
-                          padding: EdgeInsets.only(bottom: 8.0, top: 30.0),
-                          child: Text('Talk to us :)',
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  color: Color(0xFF660935),
-                                  fontWeight: FontWeight.w600)),
-                        ),
-                      ),
-                      //
-                      TextFormField(
-                        onChanged: (value) {
-                          NameSurname = value;
-                        },
-                        decoration: kTextFieldDecoration.copyWith(
-                            hintText: 'NAME SURNAME'),
-                        //keyboardType: TextInputType.emailAddress,
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      TextFormField(
-                        onChanged: (value) {
-                          Mail = value;
-                        },
-                        decoration: kTextFieldDecoration.copyWith(
-                          hintText: 'MAIL',
-                        ),
-                        //keyboardType: TextInputType.emailAddress,
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      TextFormField(
-                        maxLines: 5,
-                        onChanged: (value) {
-                          Mail = value;
-                        },
-                        decoration: kTextFieldDecoration.copyWith(
-                          hintText: 'Writing part...',
-                        ),
-                        //keyboardType: TextInputType.emailAddress,
-                      ),
-                      ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.symmetric(horizontal: 40),
-                              backgroundColor: mainAppColor),
-                          child: const Text('send to us')),
+                      contact_form()
                     ],
                   ),
                 ),
-                Container(
-                  height: 80,
-                  child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: <Widget>[
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: ElevatedButton(
-                              onPressed: () async {
-                                Uri phoneno = Uri.parse('tel:+905522720337');
-                                if (await launchUrl(phoneno)) {
-                                  await launchUrl(phoneno);
-                                } else {
-                                  throw 'Could not launch $phoneno';
-                                }
-                              },
-                              child: const Text('CALL'),
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: mainAppColor),
-                            ),
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.only(right: 8.0),
-                            child: ElevatedButton(
-                                onPressed: () async {
-                                  Uri phoneno =
-                                      Uri.parse('https://www.google.com/');
-                                  if (await launchUrl(phoneno)) {
-                                    await launchUrl(phoneno);
-                                  } else {
-                                    throw 'Could not launch $phoneno';
-                                  }
-                                },
-                                child: const Text('WEBSITE'),
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: mainAppColor)),
-                          ),
-                        ),
-                        Expanded(
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              child: Icon(
-                                Icons.subdirectory_arrow_left,
-                                color: Colors.white,
-                                size: 30.0,
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                  backgroundColor: mainAppColor)),
-                        ),
-                      ]),
-                )
+                BottomNav(Text("CALL"),Text("WEBSITE"),Icon(Icons.arrow_back))
               ],
             ),
           ),
