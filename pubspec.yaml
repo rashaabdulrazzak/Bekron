@@ -38,10 +38,11 @@ dependencies:
   firebase_auth: ^4.2.5
   cloud_firestore: ^4.3.1
   modal_progress_hud_nsn: ^0.3.0
-  email_validator: ^2.1.16
+  email_validator: '^2.1.16'
   flutter_map: ^3.1.0
   latlong2: ^0.8.1
   url_launcher: ^6.1.5
+  regexed_validator: ^2.0.0+1
 
 dev_dependencies:
   flutter_test:
