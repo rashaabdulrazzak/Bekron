@@ -37,7 +37,7 @@ class _AgreementScreenState extends State<AgreementScreen> {
                 flex: 1,
                 child: HeroLogo(imgHeight:90.0),
               ),
-              SizedBox(height: 15.0),
+              SizedBox(height: 10.0),
               Expanded(
                 flex: 9,
                 child: Stack(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flat_chat/constants.dart';
 
 class StartPagesHeader extends StatelessWidget {
   StartPagesHeader({required this.mainText});
@@ -6,15 +7,18 @@ class StartPagesHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.fromLTRB(0.0,40.0,0.0,15.0),
-      child: Text(
-        '$mainText',
-        style:TextStyle(
-          fontSize: 15.0,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
+    return SizedBox(
+      width: sizeBoxWidth,
+      child: Container(
+        width: double.infinity,
+        margin: EdgeInsets.fromLTRB(0.0,40.0,0.0,15.0),
+        child: Text(
+          '$mainText',
+          style:TextStyle(
+            fontSize: 15.0,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
     );
