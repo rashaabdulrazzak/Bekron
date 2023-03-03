@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flat_chat/constants.dart';
 
 class RoundedButton extends StatelessWidget {
-  RoundedButton({required this.borderRadius,required this.textBtn, required this.onPress});
+  RoundedButton({required this.borderRadius,required this.textBtn, required this.onPress, this.btnWidth = 160 , this.btnHeight = 39});
 
   final double borderRadius ;
   final VoidCallback onPress ;
   final String textBtn;
+  final double btnWidth ;
+  final double btnHeight;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,11 +19,11 @@ class RoundedButton extends StatelessWidget {
         borderRadius: BorderRadius.circular(borderRadius),
         child: MaterialButton(
           onPressed: onPress,
-          minWidth: 160.0,
-          height: 39.0,
+          minWidth: btnWidth,
+          height:btnHeight,
           child: Text(
             textBtn,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold
             ),
           ),

@@ -77,7 +77,7 @@ class _AgreementScreenState extends State<AgreementScreen> {
                         showSpinner = false;
                       });
                     } catch(e){print(e);}*/
-                    },),
+                    },)
                   ],
                 ),
               ),

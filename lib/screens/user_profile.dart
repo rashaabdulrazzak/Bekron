@@ -88,8 +88,8 @@ class _UserProfileState extends State<UserProfile> {
             // WhirlIconWidget(
             //   whirlCount: 10,
             // ) ,
-            Expanded(
-              child: const SizedBox(
+            const Expanded(
+              child: SizedBox(
                   width: double.infinity,
                   child: WhirlCount(),
               ),

@@ -11,25 +11,25 @@ class WhirlCount extends StatefulWidget {
 
 class _WhirlCountState extends State<WhirlCount> {
  final List<String> items = [
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
-   'images/paper-cup.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
+   'images/coffee-bag.png'  ,
 
  ];
  @override
  Widget build(BuildContext context) {
    return Container(
-     padding: const EdgeInsets.all(20.0),
+     padding: const EdgeInsets.all(15.0),
      decoration:  BoxDecoration(
        borderRadius: BorderRadius.circular(10),
        color: mainAppColor,
@@ -47,19 +47,14 @@ class _WhirlCountState extends State<WhirlCount> {
                itemCount: items.length,
                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                  crossAxisCount: 7,
-                 crossAxisSpacing: 4.0,
+                 crossAxisSpacing: 0,
                  mainAxisSpacing: 4.0,
                ),
                itemBuilder: (BuildContext context, int index) {
-                 return Container(
-                   color: Colors.blue,
-                   child: Center(
-                     child: Image.asset(
-                       items[index],
-                       width: 20,
-                       height: 20,
-                     ),
-                   ),
+                 return Image.asset(
+                   items[index],
+                   width: 40,
+                   height: 40,
                  );
                },
              ),

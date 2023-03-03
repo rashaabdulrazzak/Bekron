@@ -1,4 +1,5 @@
 //import 'package:firebase_core/firebase_core.dart';
+import 'package:flat_chat/screens/admin_control_panel.dart';
 import 'package:flat_chat/screens/user_profile.dart';
 import 'package:flat_chat/screens/user_scan.dart';
 import 'package:flutter/material.dart';
@@ -38,7 +39,8 @@ class FlashChat extends StatelessWidget {
         ChatScreen.id: (context) =>  ChatScreen(),
         UserProfile.id:(context)=> const UserProfile(),
         UserScan.id : (context)=>  UserScan(),
-        WhirlCount.id: (context)=> WhirlCount()
+        WhirlCount.id: (context)=> WhirlCount(),
+        AdminControlPanel.id: (context)=> AdminControlPanel(),
       },
     );
   }

@@ -53,4 +53,15 @@ const kUserScanText = TextStyle(
   color:mainAppColor ,
   decoration: TextDecoration.none,
 );
-
+const kUserAdminText = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 24.0,
+  color:Colors.black87 ,
+  decoration: TextDecoration.none,
+);
+const kUserAdminEmailText = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 16.0,
+  color:Colors.black87 ,
+  decoration: TextDecoration.none,
+);
